@@ -180,7 +180,7 @@ crash.log
 crash.*.log
 
 # Variable definition files that may contain sensitive data
-*.tfvars
+#*.tfvars
 
 # Terraform override files (used for local tweaks; usually not shared)
 override.tf
@@ -197,3 +197,8 @@ terraform.tfplan
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 .idea/
+
+# ML files/directories
+mlruns
+model.pkl
+src/machine-learning/data/*
