@@ -1,6 +1,6 @@
 variable "aws_region" {
   description = "AWS region"
-  default     = "eu-north-1"
+  default     = "eu-west-3"
 }
 
 variable "environment" {

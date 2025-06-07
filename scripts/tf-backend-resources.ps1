@@ -39,7 +39,7 @@ $USER_NAME = "terraform_user"
 
 # Create S3 Bucket
 $S3_BUCKET_NAME = "tf-remote-backends-ehb-354987132465"
-#aws s3 mb "s3://$S3_BUCKET_NAME" --region "eu-north-1" | Out-Null
+#aws s3 mb "s3://$S3_BUCKET_NAME" --region "eu-west-3" | Out-Null
 ##Check-ExitStatus "Failed to create S3 bucket."
 #
 ## Enable Versioning for S3 Bucket

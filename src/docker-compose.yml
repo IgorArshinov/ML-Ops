@@ -1,0 +1,11 @@
+﻿services:
+  ml-server:
+    container_name: ml-server
+    image: ml-server:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+      tags:
+        - ml-server:latest
+    ports:
+      - "8989:8989"
