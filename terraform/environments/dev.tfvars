@@ -1,9 +1,37 @@
 environment = "dev"
-aws_region  = "eu-west-3"
+aws_region  = "eu-west-1"
 
 s3_buckets = [
   {
-    key  = "mlops-354987132465"
+    key  = "mlops-datastore-9876"
+    tags = {}
+  }
+]
+
+ecr_repositories = [
+  {
+    key                  = "mlops-docker-repository"
+    image_tag_mutability = "MUTABLE"
+    image_scanning_configuration = {
+      scan_on_push = true
+    }
+    tags = {}
+  }
+]
+
+apprunner_services = [
+  {
+    key = "mlops-app-service"
+    source_configuration = {
+      image_repository = {
+        image_identifier      = "ff535cfcc495.dkr.ecr.eu-west-1.amazonaws.com/mlops-docker-repository:latest"
+        image_repository_type = "ECR"
+        image_configuration = {
+          port = 8989
+        }
+      }
+      auto_deployments_enabled = true
+    }
     tags = {}
   }
 ]

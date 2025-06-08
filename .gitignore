@@ -200,5 +200,5 @@ terraform.tfplan
 
 # ML files/directories
 mlruns
-model.pkl
-src/machine-learning/data/*
+src/server/models
+src/machine-learning/data/
