@@ -2,28 +2,30 @@ import logging
 import os
 from pathlib import Path
 
-import yaml
 import mlflow
 import mlflow.sklearn
-from pipelines.ingest import Ingestion
-from pipelines.clean import Cleaner
-from pipelines.train import Trainer
-from pipelines.predict import Predictor
+import yaml
 from sklearn.metrics import classification_report
 
-logging.basicConfig(level=logging.INFO,format='%(asctime)s:%(levelname)s:%(message)s')
+from pipelines.clean import Cleaner
+from pipelines.ingest import Ingestion
+from pipelines.predict import Predictor
+from pipelines.train import Trainer
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
 
 def mlflow_main():
     with open('config.yml', 'r') as file:
         config = yaml.safe_load(file)
 
     project_dir = Path(os.getcwd())
-    
-    print(project_dir)
-    mlflow.set_experiment("Model Training Experiment")
-    mlflow.set_tracking_uri(f"file:///{project_dir / 'mlruns'}")
 
-    with mlflow.start_run() as run:
+    print(project_dir)
+    # experiment: Experiment = mlflow.set_experiment("Model Training Experiment")
+    # mlflow.set_tracking_uri(f"file:///{project_dir / 'mlruns'}")
+    mlflow.set_tracking_uri("http://127.0.0.1:5000")
+
+    with mlflow.start_run(run_name="Model Training Experiment") as run:
         # Load data
         ingestion = Ingestion()
         train, test = ingestion.load_data()
@@ -41,7 +43,7 @@ def mlflow_main():
         trainer = Trainer()
         X_train, y_train = trainer.feature_target_separator(train_data)
         trainer.train_model(X_train, y_train)
-        trainer.save_model()
+        # trainer.save_model()
         logging.info("Model training completed successfully")
 
         # Evaluate model

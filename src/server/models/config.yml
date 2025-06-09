@@ -1,0 +1,7 @@
+bucket:
+  dev: mlops-models-9876-dev
+  prd: mlops-models-9876-prd
+
+model:
+  name: model.pkl
+  id: "15354cde9136423a9fb8d5daefb80e05"
