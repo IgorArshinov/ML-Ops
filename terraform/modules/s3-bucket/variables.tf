@@ -8,7 +8,3 @@ variable "tags" {
   type = map(string)
   description = "Map of tags to attach to resource."
 }
-
-variable "rule" {
-  default = null
-}

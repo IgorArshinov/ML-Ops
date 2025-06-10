@@ -4,5 +4,4 @@ module "s3_bucket" {
 
   bucket = join(var.delimiter, [each.value.key, var.environment])
   tags = merge(try(each.value.tags, {}), { environment = var.environment })
-  rule = each.value.rule
 }
