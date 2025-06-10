@@ -1,3 +1,5 @@
+import os
+
 import yaml
 from fastapi import FastAPI
 from pydantic import BaseModel
@@ -5,6 +7,9 @@ import pandas as pd
 import joblib
 
 app = FastAPI()
+
+script_dir = os.path.dirname(os.path.realpath(__file__))
+config_path = os.path.join(script_dir, 'config.yml')
 
 
 class InputData(BaseModel):
@@ -20,7 +25,8 @@ class InputData(BaseModel):
 with open('./config.yml', 'r') as file:
     config = yaml.safe_load(file)
 
-model = joblib.load("models/" + config.get("model").get("full_file_name"))
+model_path = os.path.join(script_dir, 'models', config.get("model").get("full_file_name"))
+model = joblib.load(model_path)
 
 
 @app.get("/")
