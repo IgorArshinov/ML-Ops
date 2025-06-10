@@ -12,7 +12,7 @@ COPY ./server/app.py .
 COPY ./server/models/ ./models/
 
 # Copy the requirements file to the working directory
-COPY ./server/requirements.txt .
+COPY requirements.txt .
 
 # Install the Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
