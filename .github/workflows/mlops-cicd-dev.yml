@@ -44,4 +44,5 @@ jobs:
         run: dvc pull
 
       - name: Retrain model
-        run: python machine_learning/main.py
+        working-directory: src/machine-learning
+        run: python main.py
