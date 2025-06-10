@@ -17,4 +17,4 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Run the FastAPI application using uvicorn server
-CMD ["sh", "-c", "python server/models/init_model.py; uvicorn app:app --host 0.0.0.0 --port 8989"]
+CMD ["sh", "-c", "python models/init_model.py; uvicorn app:app --host 0.0.0.0 --port 8989"]

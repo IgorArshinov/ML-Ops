@@ -1,8 +1,14 @@
-﻿import boto3
+﻿import os
+
+import boto3
 import yaml
 
+script_dir = os.path.dirname(os.path.realpath(__file__))
+config_path = os.path.join(script_dir, '..', 'config.yml')
+
+
 def process_config():
-    with open('../config.yml', 'r') as file:
+    with open(config_path, 'r') as file:
         config = yaml.safe_load(file)
 
     s3_client = boto3.client('s3')
@@ -26,4 +32,4 @@ def process_config():
         Key=object_key,
         Body=model_file
     )
-    return response  # optionally return response for further validation
+    return response
