@@ -25,7 +25,7 @@ def mlflow_main():
     # mlflow.set_tracking_uri(f"file:///{project_dir / 'mlruns'}")
     mlflow.set_tracking_uri("http://127.0.0.1:5000")
 
-    with mlflow.start_run(run_name="Model Training Experiment") as run:
+    with mlflow.start_run() as run:
         # Load data
         ingestion = Ingestion()
         train, test = ingestion.load_data()
