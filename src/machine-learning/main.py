@@ -23,7 +23,7 @@ def mlflow_main():
     print(project_dir)
     # experiment: Experiment = mlflow.set_experiment("Model Training Experiment")
     # mlflow.set_tracking_uri(f"file:///{project_dir / 'mlruns'}")
-    mlflow.set_tracking_uri("http://127.0.0.1:5000")
+    mlflow.set_tracking_uri(config.get("mlflow").get("tracking_url"))
 
     with mlflow.start_run() as run:
         # Load data
