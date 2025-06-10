@@ -39,7 +39,7 @@ mlflow.set_tracking_uri(config.get('mlflow').get('tracking_url'))
 
 @app.get("/")
 async def root():
-    return {"health_check": "200"}
+    return {"health_check": "201"}
 
 
 @app.post("/predict")
