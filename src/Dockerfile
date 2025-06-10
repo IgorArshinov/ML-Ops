@@ -7,9 +7,8 @@ EXPOSE 8989
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the application code and models to the working directory
-COPY ./server/app.py .
-COPY ./server/models/ ./models/
+# Copy the application code to the working directory
+COPY ./server .
 
 # Copy the requirements file to the working directory
 COPY requirements.txt .
