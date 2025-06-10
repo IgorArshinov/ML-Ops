@@ -5,6 +5,6 @@ variable "bucket" {
 }
 
 variable "tags" {
-  type        = map(string)
+  type = map(string)
   description = "Map of tags to attach to resource."
 }
