@@ -15,7 +15,7 @@ model:
   params:
     criterion: entropy
     max_depth: null
-  store_path: ../server/models/
+  store_path: models/
 
   # name: GradientBoostingClassifier
   # params:
