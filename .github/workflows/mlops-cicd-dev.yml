@@ -40,7 +40,7 @@ jobs:
           aws-region: eu-west-1
 
       - name: Pull latest data with DVC
-        working-directory: src/machine_learning
+        working-directory: src/machine-learning
         run: dvc pull
 
       - name: Retrain model
