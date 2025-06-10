@@ -43,4 +43,5 @@ jobs:
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
 
       - name: Initialize the model
-        run: python server/models/init_model.py
+        working-directory: server/models/
+        run: python init_model.py
