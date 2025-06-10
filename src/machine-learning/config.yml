@@ -1,3 +1,6 @@
+mlflow:
+  tracking_url: https://f6f9-2a02-1810-8c09-7d00-c4ef-f014-a6-57da.ngrok-free.app/ 
+
 data: 
   train_path: data/train.csv
   test_path: data/test.csv

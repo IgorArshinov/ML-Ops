@@ -16,11 +16,21 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: src/machine_learning
+        working-directory: src
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -33,4 +43,4 @@ jobs:
         run: dvc pull
 
       - name: Retrain model
-        run: python main.py
+        run: python machine_learning/main.py
