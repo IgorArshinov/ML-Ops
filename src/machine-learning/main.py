@@ -36,7 +36,7 @@ def mlflow_main():
         train_data = cleaner.clean_data(train)
         
         test_data = cleaner.clean_data(test)
-        logging.info("Data cleaning completed successfully")
+        logging.info("Data cleaning completed successfully")    
 
         # Prepare and train model
         trainer = Trainer()
