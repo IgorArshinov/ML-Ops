@@ -9,5 +9,9 @@ s3_buckets = [
   {
     key = "mlops-models-9876"
     tags = {}
+  },
+  {
+    key = "mlops-testing-9876"
+    tags = {}
   }
 ]
